@@ -18,9 +18,6 @@ app.post('/token', function (request, response) {
   var u = request.body.username
   var p = request.body.password
 
-  console.log(u);
-  console.log(p);
-
   if (u === 'lucas' && p === 'password') {
     console.log('you win')
     response.send({
@@ -38,22 +35,45 @@ app.post('/token', function (request, response) {
 app.get('/api/v1/teams', function(req,res) {
 
   console.log(req.header('Authorization'))
+  const isCurrent = req.query.isCurrent === 'true'
 
+  //pretend we're checking the authorization code. ya right
+  //we could either use this Bearer token as a key to find who the user is from our db,
+  //or JWT/JWE to decrypt it and skip the db.
   if (req.header('Authorization') === 'Bearer 2YotnFZFEjr1zCsicMWpAA') {
-    res.send({
-      teams: [
-        {
-          id: 1,
-          name: "Ron Burgundy",
-          specialty: "Pine"
-        },
-        {
-          id: 2,
-          name: "Rick James",
-          specialty: "Music?"
+
+    if (isCurrent) {
+      console.log('asking for current teammate')
+
+      res.send({
+        team: {
+          id: 3,
+          name: "Lucas Gray",
+          specialty: "Crappy NodeJS code",
+          isCurrent: true
         }
-      ]
-    })
+      })
+
+    } else {
+      console.log('asking for current teammate')
+
+      res.send({
+        teams: [
+          {
+            id: 1,
+            name: "Ron Burgundy",
+            specialty: "Smelling of rich mahogany",
+            isCurrent: false
+          },
+          {
+            id: 2,
+            name: "Harry Potter",
+            specialty: "Spellz",
+            isCurrent: false
+          }
+        ]
+      })
+    }
   } else {
     res.sendStatus(401)
   }
