@@ -1,0 +1,102 @@
+## Ember Stuff
+
+# compiled output
+/dist
+/tmp
+
+# dependencies
+/node_modules
+/bower_components
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage/*
+/libpeerconnection.log
+npm-debug.log
+testem.log
+.ruby-version
+
+## generic files to ignore
+TempStatsStore
+src/main/webapp/compiled
+.vagrant
+.chef
+.libs
+data
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+derby.log
+# rails specific
+*.sqlite3
+config/database.yml
+log/*
+tmp/*
+db/*.sqlite
+# java specific
+*.class
+
+# python specific
+*.pyc
+
+# xcode/iphone specific
+*.pbxuser
+*.mode2v3
+*.mode1v3
+*.perspective
+*.perspectivev3
+*~.nib
+
+# akka specific
+logs/*
+
+# sbt specific
+target/
+project/boot
+lib_managed/*
+project/build/target
+project/build/lib_managed
+project/build/src_managed
+project/plugins/lib_managed
+project/plugins/target
+project/plugins/src_managed
+project/plugins/project
+
+core/lib_managed
+core/target
+pubsub/lib_managed
+pubsub/target
+
+# eclipse specific
+.metadata
+jrebel.lic
+.settings
+.classpath
+.project
+
+.ensime*
+*.sublime-*
+.cache
+
+# intellij
+*.eml
+*.iml
+*.ipr
+*.iws
+.*.sw?
+.idea
+
+# paulp script
+/.lib/
+
+# floobits
+.floo*
+
+# ember
+npm-debug.log
+
+# build artifact
+src/main/webapp/WEB-INF/build.conf
